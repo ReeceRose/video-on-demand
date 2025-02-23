@@ -4,10 +4,11 @@
 
 ### Developer Dependencies
 
-1. [Rust](https://www.rust-lang.org/)
-2. [Docker](https://docs.docker.com/desktop/)
-3. [Docker Compose](https://docs.docker.com/compose/install/)
-4. [Make](https://www.gnu.org/software/make/)
+1. [Golang](https://go.dev/)
+2. [Air](https://github.com/air-verse/air)
+3. [Docker](https://docs.docker.com/desktop/)
+4. [Docker Compose](https://docs.docker.com/compose/install/)
+5. [Make](https://www.gnu.org/software/make/)
 
 ```bash
 # First time

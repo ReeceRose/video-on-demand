@@ -26,7 +26,8 @@ dev-build:
 
 dev:
 	@echo "Starting services in development mode..."
-	$(DOCKER_COMPOSE_DEV) up
+	# $(DOCKER_COMPOSE_DEV) up --detach
+	make -j 3 api notifications transcoding
 
 dev-down:
 	@echo "Stopping services in development mode..."
@@ -39,6 +40,15 @@ prod:
 prod-down:
 	@echo "Stopping services in production mode..."
 	$(DOCKER_COMPOSE_PROD) down
+
+api:
+	air --build.cmd "go build -o bin/api cmd/api/main.go" --build.bin "./bin/api"
+
+notifications:
+	air --build.cmd "go build -o bin/notifications cmd/notifications/main.go" --build.bin "./bin/notifications"
+
+transcoding:
+	air --build.cmd "go build -o bin/transcoding cmd/transcoding/main.go" --build.bin "./bin/transcoding"
 
 clean:
 	@echo "Cleaning up build artifacts..."
